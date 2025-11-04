@@ -1,59 +1,98 @@
-# Admin Panel - Gestión de Grupos y Usuarios
+# Proyecto de Administración de Usuarios y Grupos
 
-Este proyecto es una aplicación FullStack desarrollada con **Laravel (PHP)** para el backend y **Angular 17** para el frontend. Permite la creación y gestión de grupos de usuarios, así como la asignación de usuarios a grupos de manera reactiva y segura.
+Este proyecto es un sistema de administración de usuarios y grupos que permite crear grupos, asignar usuarios a grupos y visualizar la estructura de usuarios por grupo. Está desarrollado con **Laravel** en el backend y **Angular 17** en el frontend.
 
 ---
 
-## Tecnologías utilizadas
+## Tecnologías
 
 ### Backend
-- **Laravel 10** (PHP 8+)
+- **Laravel 10**
+- **PHP 8**
 - **MySQL** como base de datos
 - Autenticación y autorización mediante **Laravel Sanctum**
-- Encriptación de datos sensibles usando funciones estándar de Laravel (`bcrypt`, `Hash::make()`)
+- Encriptación de datos sensibles usando mecanismos estándar de Laravel
 - Arquitectura de **API REST** para consumo desde Angular
-- Modelos de Eloquent para `Usuarios`, `Grupos` y relaciones `UsuariosGrupos`
-- Validación de datos mediante Requests y reglas de Laravel
-- Middleware para proteger rutas según permisos y autenticación
+- Modelos principales: `Usuarios`, `Grupos`, `UsuariosGrupos`
 
 ### Frontend
-- **Angular 17** (Standalone Components)
-- Uso de **Signals** para manejo reactivo de estados y binding de datos
-- Componentes principales:
-  - `AdminPanelComponent`: Gestión de grupos y asignación de usuarios
-- Estilos con **SCSS** modernos y responsivos
-- Renderizado dinámico de listas y selects mediante funciones y señales reactivas (no `*ngFor`/`*ngIf`)
-- Manejo de formularios y eventos mediante bindings reactivos
-
-### Seguridad
-- Autenticación mediante **Laravel Sanctum**, que permite tokens de sesión seguros
-- Encriptación de contraseñas y datos sensibles en la base de datos
-- Protección de rutas y control de acceso en backend
+- **Angular 17**
+- TypeScript y HTML
+- Componentes standalone
+- Renderizado dinámico de listas y selects mediante **signals**
+- Estilos simples en SCSS para una interfaz limpia y funcional
 
 ---
 
 ## Funcionalidades
 
 ### Backend
-1. CRUD de **Usuarios** y **Grupos**
-2. Asignación de usuarios a grupos
-3. Endpoints REST seguros con autenticación Sanctum
-4. Validación de datos de entrada
-5. Manejo de errores y respuestas claras
+- CRUD de `Usuarios` y `Grupos`
+- Asignación de usuarios a grupos
+- Protección de rutas mediante **Sanctum** (token-based)
+- Manejo de relaciones entre usuarios y grupos en la base de datos
 
 ### Frontend
-1. Creación de grupos directamente desde el panel
-2. Visualización de usuarios dentro de cada grupo
-3. Asignación de usuarios a grupos mediante selects reactivos
-4. UI moderna y responsiva
-5. Manejo de estados y eventos mediante Angular 17 Signals
+- Creación de grupos
+- Asignación de usuarios a grupos
+- Visualización dinámica de usuarios dentro de cada grupo
+- Formularios reactivos simples usando signals de Angular 17
 
 ---
 
 ## Instalación y ejecución
 
 ### Backend (Laravel)
-1. Clonar el proyecto
-2. Instalar dependencias:  
+1. Clonar el proyecto:  
    ```bash
-   composer install
+   git clone <URL_DEL_PROYECTO_BACKEND>
+   cd <CARPETA_DEL_PROYECTO_BACKEND>
+Instalar dependencias:
+
+bash
+Copy code
+composer install
+Configurar la base de datos en el archivo .env:
+
+env
+Copy code
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre_base
+DB_USERNAME=usuario
+DB_PASSWORD=contraseña
+Ejecutar migraciones y seeders:
+
+bash
+Copy code
+php artisan migrate --seed
+Iniciar el servidor backend:
+
+bash
+Copy code
+php artisan serve
+La API estará disponible en http://127.0.0.1:8000
+
+Frontend (Angular 17)
+Clonar el proyecto frontend:
+
+bash
+Copy code
+git clone <URL_DEL_PROYECTO_FRONTEND>
+cd <CARPETA_DEL_PROYECTO_FRONTEND>
+Instalar dependencias:
+
+bash
+Copy code
+npm install
+Iniciar la aplicación Angular:
+
+bash
+Copy code
+ng serve
+Abrir en el navegador:
+
+arduino
+Copy code
+http://localhost:4200
