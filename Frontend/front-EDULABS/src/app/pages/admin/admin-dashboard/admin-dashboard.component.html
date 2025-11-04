@@ -1,0 +1,14 @@
+<div class="min-h-screen flex bg-gray-100">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-blue-700 text-white flex flex-col p-6 space-y-4">
+    <h2 class="text-xl font-bold mb-6">EDULABS</h2>
+  <!----  <a routerLink="./user" routerLinkActive="bg-blue-900" class="p-2 rounded hover:bg-blue-800" style="cursor: pointer;">Panel Usuario</a> -->
+    <a (click)="goAdmin()" routerLinkActive="bg-blue-900" class="p-2 rounded hover:bg-blue-800" style="cursor: pointer;">Panel Administrador</a>
+    <button (click)="logout()" class="mt-auto bg-red-500 hover:bg-red-600 p-2 rounded">Cerrar sesión</button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-8">
+    <router-outlet></router-outlet>
+  </main>
+</div>

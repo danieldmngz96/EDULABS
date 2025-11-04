@@ -1,0 +1,29 @@
+<h2>Grupos</h2>
+
+<div>
+  <input [value]="nuevoGrupoNombre()" (input)="nuevoGrupoNombre.set($any($event.target).value)" placeholder="Nombre del grupo" />
+  <button (click)="crearGrupo()">Crear Grupo</button>
+</div>
+
+<div *ngFor="let grupo of grupos()">
+  <h3>{{ grupo.nombre }}</h3>
+  <ul>
+    <li *ngFor="let usuario of grupo.usuarios">{{ usuario.nombre }}</li>
+  </ul>
+</div>
+
+<hr />
+
+<div>
+  <label>Seleccionar grupo:</label>
+  <select (change)="grupoSeleccionado.set(grupos()[$any($event.target).selectedIndex])">
+    <option *ngFor="let grupo of grupos()">{{ grupo.nombre }}</option>
+  </select>
+
+  <label>Seleccionar usuario:</label>
+  <select (change)="usuarioSeleccionado.set(usuariosDisponibles()[$any($event.target).selectedIndex])">
+    <option *ngFor="let usuario of usuariosDisponibles()">{{ usuario.nombre }}</option>
+  </select>
+
+  <button (click)="asignarUsuario()">Asignar Usuario</button>
+</div>
